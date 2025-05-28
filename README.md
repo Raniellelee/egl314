@@ -1,4 +1,4 @@
-![image](https://github.com/user-attachments/assets/228df113-5ee6-4217-8f24-d8c03f0104f2)
+
 # Introduction
 ## What is NeoPixel?
 NeoPixels are LED pixels that can be individually programmed. They can also be found in many shapes and sizes as well as lengths to suit a consumer's needs
