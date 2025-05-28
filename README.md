@@ -1,13 +1,13 @@
-
+![image](https://github.com/user-attachments/assets/228df113-5ee6-4217-8f24-d8c03f0104f2)
 # Introduction
 ## What is NeoPixel?
 NeoPixels are LED pixels that can be individually programmed. They can also be found in many shapes and sizes as well as lengths to suit a consumer's needs
 
-- Circles are offered from a range of 12,16,24, as well as 60 pixels
-- Strips (6 pixels per meter or 30 pixels per meter) for 1 meter + 5 meter lengths can be extended or cut to any required length for soldering
-- Sticks are mostly offered in a group of 8 pixels
-- Individual pixels can be joined together into a single group
-- Matrixes are grids of neopixels sold in 4x8 and 8x8 
+- Circles are offered from a range of 12,16,24, as well as 60 pixels ![alt text](https://cdn-shop.adafruit.com/970x728/1463-00.jpg)
+- Strips (6 pixels per meter or 30 pixels per meter) for 1 meter + 5 meter lengths can be extended or cut to any required length for soldering ![alt text](https://cdn-shop.adafruit.com/970x728/1376-00.jpg)
+- Sticks are mostly offered in a group of 8 pixels ![alt text](https://cdn-shop.adafruit.com/970x728/1426-05.jpg)
+- Individual pixels can be joined together into a single group ![alt text](https://cdn-shop.adafruit.com/970x728/1655-00.jpg)
+- Matrixes are grids of neopixels sold in 4x8 and 8x8 ![alt text](https://cdn-shop.adafruit.com/970x728/1487-00.jpg)
 
 link to the product site ```https://www.adafruit.com/category/168```
 
@@ -19,26 +19,26 @@ link to the product site ```https://www.adafruit.com/category/168```
 ### Software
 - Visual Studio Code
 - Raspbian OS (Bullseye version)
-
+-Python packages
+- https://github.com/huats-club/rpistarterkit/blob/main/README.md (For Rasberry Pi 4 Model B)
+- https://github.com/huats-club/mts_sensor_cookbook/blob/4eb2e9dfefc014b6b86d9134842269ae87d18a5e/3.%20led/led.md (For Neopixel LED control)
 ### Resources used
 - https://github.com/huats-club 
 - https://github.com/huats-club/rpistarterkit
 - https://github.com/huats-club/mts_sensor_cookbook
 - https://www.geeksforgeeks.org/python-gui-tkinter/
+- https://diotlabs.daraghbyrne.me/docs/controlling-outputs-neopixels/neopixels/#:~:text=Neopixels%20are%20individually%20addressable%20LED,or%20cut%20to%20desired%20length. (For the introduction)
 
 ## System diagram
 ```mermaid
 graph TD;
-A[Monitor]-->B[Rasberry Pi]
-B-->A
-B-->C[NeoPixel]
-C-->B
-C-->D[GPIO18 PWM with
-ground ]
-D-->B[Raspberry Pi]
-E[Keyboard / Mouse]
-A-->E
-E-->A
+A[Monitor]--HDMI-->B[Rasberry Pi]
+B--5V(red jumper wire) 
+Ground(black jumper wire)
+GPIO18(PWM)-->C[NeoPixel]
+D[Keyboard / Mouse]
+B--USB2-->D
+E[Power Supply]--2 pin terminal block-->C
 ```
 
 ## Code logic
