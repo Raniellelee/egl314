@@ -43,7 +43,14 @@ E[Power Supply]--2 pin terminal block-->C
 
 ## Code logic
 ### How the code is able to light up the NeoPixel
-```colorWipe(strip, color, wait_ms=1)``` is called in a ```while``` loop in order to light up the LED pixels based on the assigned RGB values, (red value, green value, blue value) 
+```mermaid
+graph TD;
+A[keyboard/mouse]--press run in-->B[Visual Studio Code]
+B-->A
+B--tells neopixel to run based on code-->C[Neopixel]
+C-->B
+C-->D[lights up according to code]
+
 ## Code used 
 ```
 import time
