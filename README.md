@@ -51,7 +51,8 @@ B--tells neopixel to run based on code-->C[Neopixel]
 C-->B
 C-->D[lights up according to code]
 ```
-import time
+##Code used
+```import time
 from rpi_ws281x import *
 
 # LED strip configuration:
