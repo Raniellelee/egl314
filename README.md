@@ -49,6 +49,8 @@ A[keyboard/mouse]--press run in-->B[Visual Studio Code]
 B-->A
 B--tells neopixel to run based on code-->C[Neopixel]
 C-->B
+B--run the mp3 audio folder-->E[speakers]
+E-->B
 C-->D[lights up according to code]
 ```
 ## Code used
