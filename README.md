@@ -52,6 +52,7 @@ C-->B
 B--run the mp3 audio folder-->E[speakers]
 E-->B
 C-->D[lights up according to code]
+E-->F[plays the mp3 audio file]
 ```
 ## Code used
 ```import time
