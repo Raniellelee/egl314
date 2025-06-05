@@ -51,7 +51,7 @@ B--tells neopixel to run based on code-->C[Neopixel]
 C-->B
 C-->D[lights up according to code]
 ```
-##Code used
+## Code used
 ```import time
 from rpi_ws281x import *
 
