@@ -57,10 +57,24 @@ E-->F[plays the mp3 audio file]
 ## Code used
 ```import time
 from rpi_ws281x import *
+from threading import Thread
+# from pydub import AudioSegment
+# from pydub.playback import _play_with_simpleaudio
+
+# song=AudioSegment.from_mp3('/home/pi/Downloads/Epic - Bensound [ No Copyright Music] - NoCopyrightMusic-[AudioTrimmer.com].mp3')
+# play(song)
+
+#INSERT ACTUAL MP3 HERE
+#AUDIO_FILE='' #INSERT mp3 file from premiere pro by all means somehow
+# Audio setup
+# AUDIO_FILE = "ran-bensound.mp3"  # or .mp3
+# audio = AudioSegment.from_file(AUDIO_FILE)
+# audio_length_ms = len(audio)
+
 
 # LED strip configuration:
 LED_COUNT = 300 # Number of LED pixels.
-LED_PIN = 18           # GPIO pin connected to the pixels (must support PWM!).
+LED_PIN = 12           # GPIO pin connected to the pixels (must support PWM!).
 LED_FREQ_HZ = 800000   # LED signal frequency in hertz (usually 800khz)
 LED_DMA = 10           # DMA channel to use for generating signal (try 10)
 LED_BRIGHTNESS = 64  # Set to 0 for darkest and 255 for brightest
@@ -70,6 +84,7 @@ LED_INVERT = False     # True to invert the signal (when using NPN transistor le
 strip = Adafruit_NeoPixel(LED_COUNT, LED_PIN, LED_FREQ_HZ, LED_DMA, LED_INVERT, LED_BRIGHTNESS)
 # Intialize the library (must be called once before other functions).
 strip.begin()
+
 def colorWipe(strip, color, wait_ms=1):
     """Wipe color across display a pixel at a time."""
     for i in range(strip.numPixels()):
@@ -89,30 +104,111 @@ def setStaticWhite(strip, brightness=255):
     for i in range(strip.numPixels()):
         strip.setPixelColor(i, color)
     strip.show()
+
+def setColor(color):
+    strip.setPixelColor(0,color)
+    strip.show()
+
+count = 0
+
 try:
-    while True:
+    while (True):
+        for i in range(0,50):
+            strip.setPixelColor(i,Color(255,0,0))
+            strip.show()
+           
+        for i in range(50):
+            strip.setPixelColor(i,Color(0,0,0))
+            strip.show()
+        
+        for i in range(0,50):
+            strip.setPixelColor(i,Color(255,0,0))
+            strip.show()
+
+        for i in range(50,101):
+            strip.setPixelColor(i,Color(255,165,0))
+            strip.show()
+
+        if(count): 
+            for i in range(strip.numPixels()):
+                strip.setPixelColor(i,Color(0,0,0))
+                strip.show()
+            break
+        count += 1
+        
+        for i in range(101):
+            strip.setPixelColor(i,Color(0,0,0))
+            strip.show()
+        
+        for i in range(50,101):
+            strip.setPixelColor(i,Color(255,165,0))
+            strip.show()
+        
+        for i in range(102,152):
+            strip.setPixelColor(i,Color(255,255,0))
+            strip.show()
+
+        for i in range(152):
+            strip.setPixelColor(i,Color(0,0,0))
+            strip.show()
+
+        for i in range(102,152):
+            strip.setPixelColor(i,Color(255,255,0))
+            strip.show()
+
+        for i in range(153,203):
+            strip.setPixelColor(i,Color(0,255,0))
+            strip.show()
+
+        for i in range(203):
+            strip.setPixelColor(i,Color(0,0,0))
+            strip.show()
+
+        for i in range(153,203):
+            strip.setPixelColor(i,Color(0,255,0))
+            strip.show()
+
+        for i in range(203):
+            strip.setPixelColor(i,Color(0,0,0))
+            strip.show()
+
+        colorWipe(strip, Color(0,255,255))
+
+        for i in range(strip.numPixels()):
+            strip.setPixelColor(i,Color(0,0,0))
+            strip.show()
+
+    # while True:
+        
         # Color wipe animations.
-        colorWipe(strip, Color(255, 0, 0))  # Red wipe
-        turnOffLEDs(strip)
-        colorWipe(strip, Color(255, 165, 0)) #orange
-        turnOffLEDs(strip)
-        colorWipe(strip, Color(255, 255, 0)) #yellow
-        turnOffLEDs(strip)
-        colorWipe(strip, Color(0, 255, 0))  # Green wipe
-        turnOffLEDs(strip)
-        colorWipe(strip, Color(0, 0, 255))  # Blue wipe
-        turnOffLEDs(strip)
-        colorWipe(strip, Color(0, 255, 255))
-        turnOffLEDs(strip)
-        colorWipe(strip, Color(143, 0, 255))
-        turnOffLEDs(strip)
-        colorWipe(strip, Color(255, 0, 255))
-        turnOffLEDs(strip)
-        colorWipe(strip, Color(255, 255, 255))
-        turnOffLEDs(strip)
+        # colorWipe(strip, Color(255, 0, 0))  # Red wipe
+        # turnOffLEDs(strip)
+        # colorWipe(strip, Color(255, 165, 0)) #orange
+        # turnOffLEDs(strip)
+        # colorWipe(strip, Color(255, 255, 0)) #yellow
+        # turnOffLEDs(strip)
+        # colorWipe(strip, Color(0, 255, 0))  # Green wipe
+        # turnOffLEDs(strip)
+        # setStaticGreen(strip)
+        # colorWipe(strip, Color(0, 0, 0))
+        # colorWipe(strip, Color(0, 0, 255))  # Blue wipe
+        # turnOffLEDs(strip)
+        # colorWipe(strip, Color(0, 255, 255))
+        # turnOffLEDs(strip)
+        # colorWipe(strip, Color(143, 0, 255))
+        # turnOffLEDs(strip)
+        # colorWipe(strip, Color(255, 0, 255))
+        # turnOffLEDs(strip)
+        # colorWipe(strip, Color(255, 255, 255))
+        # turnOffLEDs(strip)
+        # setColor(Color(255,0,0))
+        # time.sleep(1)
+        # setColor(Color(255,165,0))
+        # time.sleep(1)
+        # setColor(Color(0,0,255))
+        # time.sleep(1)
 except KeyboardInterrupt:
     colorWipe(strip, Color(0,0,0), 10)
-
 ```
 
 
