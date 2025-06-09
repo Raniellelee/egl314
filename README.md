@@ -55,21 +55,21 @@ C-->D[lights up according to code]
 E-->F[plays the mp3 audio file]
 ```
 ## Code used
-```import time
+```
+  import time
 from rpi_ws281x import *
 from threading import Thread
-# from pydub import AudioSegment
-# from pydub.playback import _play_with_simpleaudio
+from pydub import AudioSegment
+from pydub.playback import _play_with_simpleaudio
 
-# song=AudioSegment.from_mp3('/home/pi/Downloads/Epic - Bensound [ No Copyright Music] - NoCopyrightMusic-[AudioTrimmer.com].mp3')
-# play(song)
+song=AudioSegment.from_mp3('audio.rpp') #mp3 /home/pi/lesson/Sequence 01_2.mp3
+play(song)
 
 #INSERT ACTUAL MP3 HERE
-#AUDIO_FILE='' #INSERT mp3 file from premiere pro by all means somehow
 # Audio setup
-# AUDIO_FILE = "ran-bensound.mp3"  # or .mp3
-# audio = AudioSegment.from_file(AUDIO_FILE)
-# audio_length_ms = len(audio)
+AUDIO_FILE = "audio.rpp"  # or .mp3 /home/pi/lesson/Sequence 01_2.mp3
+audio = AudioSegment.from_file(AUDIO_FILE)
+audio_length_ms = len(audio)
 
 
 # LED strip configuration:
@@ -117,6 +117,7 @@ try:
             strip.setPixelColor(i,Color(255,0,0))
             strip.show()
            
+        
         for i in range(50):
             strip.setPixelColor(i,Color(0,0,0))
             strip.show()
@@ -156,6 +157,7 @@ try:
             strip.setPixelColor(i,Color(255,255,0))
             strip.show()
 
+
         for i in range(153,203):
             strip.setPixelColor(i,Color(0,255,0))
             strip.show()
@@ -178,35 +180,6 @@ try:
             strip.setPixelColor(i,Color(0,0,0))
             strip.show()
 
-    # while True:
-        
-        # Color wipe animations.
-        # colorWipe(strip, Color(255, 0, 0))  # Red wipe
-        # turnOffLEDs(strip)
-        # colorWipe(strip, Color(255, 165, 0)) #orange
-        # turnOffLEDs(strip)
-        # colorWipe(strip, Color(255, 255, 0)) #yellow
-        # turnOffLEDs(strip)
-        # colorWipe(strip, Color(0, 255, 0))  # Green wipe
-        # turnOffLEDs(strip)
-        # setStaticGreen(strip)
-        # colorWipe(strip, Color(0, 0, 0))
-        # colorWipe(strip, Color(0, 0, 255))  # Blue wipe
-        # turnOffLEDs(strip)
-        # colorWipe(strip, Color(0, 255, 255))
-        # turnOffLEDs(strip)
-        # colorWipe(strip, Color(143, 0, 255))
-        # turnOffLEDs(strip)
-        # colorWipe(strip, Color(255, 0, 255))
-        # turnOffLEDs(strip)
-        # colorWipe(strip, Color(255, 255, 255))
-        # turnOffLEDs(strip)
-        # setColor(Color(255,0,0))
-        # time.sleep(1)
-        # setColor(Color(255,165,0))
-        # time.sleep(1)
-        # setColor(Color(0,0,255))
-        # time.sleep(1)
 except KeyboardInterrupt:
     colorWipe(strip, Color(0,0,0), 10)
 ```
