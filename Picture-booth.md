@@ -35,13 +35,14 @@ A[user]--press run in-->B[Visual Studio Code]
 B-->A
 B--starts up the webcam in order to take photos of the user-->C[Webcam]
 C-->B
-B--processes the image with selected background to be saved and uploaded-->D[Google Drive]
+B--Google API authentication-->D[Google Drive]
 D-->B
 C-->E[Snaps image of user]
-E-->F[image can be viewed and downloaded directly with qr code generated]
+E--processes the image with selected background to be saved and uploaded-->F[image can be viewed and downloaded directly with qr code generated]
+F--uploads into GoogleDrive for digital downloading and viewing-->D
 
 ```
-##Code used
+## Code used
 ```
 import tkinter as tk
 from tkinter import messagebox
